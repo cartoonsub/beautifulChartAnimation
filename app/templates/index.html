@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>beautiful Chart Animation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  </head>
+  <body>
+    <div class="container main-container">
+        <h2 class="main-headLine">Make beautiful Chart Animation</h1>
+        <div class="container sub-container">
+            <form method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="file">Upload a file(csv, excel):</label>
+                  <input type="file" name="file" id="file" class="form-control-file">
+                </div>
+                <button type="submit" class="form-button">Upload</button>
+            </form>
+        </div>
+
+        {% if results %}
+        <h2 class="main-headLine">Results</h1>
+        <div class="container sub-container">
+            <div class="chart-container">
+                {{ results }}
+                <!-- {% for result in results %}
+
+                {% endfor %} -->
+            </div>
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="container sub-container">
+            <div class="chart-container">
+                {{ error }}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+  </body>
+</html>
