@@ -52,3 +52,10 @@ body {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
 }
+
+.video {
+    display: block;
+    width: 80%;
+    margin: auto;
+    margin-top: 64px;
+}

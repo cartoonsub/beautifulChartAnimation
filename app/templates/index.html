@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>beautiful Chart Animation</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+            
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
   </head>
@@ -22,17 +24,19 @@
         </div>
 
         {% if results %}
+        <h2 class="main-headLine">Results chart</h1>
+          <div class="container sub-container">
+            <canvas id="myChart"></canvas>
+            <video class="video" autoplay controls></video>
+          </div>
+          
         <h2 class="main-headLine">Results text</h1>
         <div class="container sub-container">
             <div class="chart-container" data-results='{{ results | tojson }}'></div>
             <div class="results"></div>
         </div>
 
-        <h2 class="main-headLine">Results chart</h1>
-        <div class="container sub-container">
-            <div class="chart-container"></div>
-            <div class="chart"></div>
-        </div>
+        
         {% endif %}
 
         {% if error %}
