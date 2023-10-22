@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>beautiful Chart Animation</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
   </head>
   <body>
     <div class="container main-container">
@@ -20,15 +22,17 @@
         </div>
 
         {% if results %}
-        <h2 class="main-headLine">Results</h1>
+        <h2 class="main-headLine">Results text</h1>
         <div class="container sub-container">
-            <div class="chart-container">
-                {{ results }}
-                <!-- {% for result in results %}
-
-                {% endfor %} -->
-            </div>
+            <div class="chart-container" data-results='{{ results | tojson }}'></div>
+            <div class="results"></div>
         </div>
+
+        <h2 class="main-headLine">Results chart</h1>
+          <div class="container sub-container">
+              <div class="chart-container"></div>
+              <div class="chart"></div>
+          </div>
         {% endif %}
 
         {% if error %}

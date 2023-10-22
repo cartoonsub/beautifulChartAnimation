@@ -99,7 +99,7 @@ def getDataFromExcel(filename):
     if not results:
         return results
     
-    results = json.dumps(results, default=str)
+    results = json.dumps(results)
     return results
 
 def getColumnsFromExcel(Sheet):
